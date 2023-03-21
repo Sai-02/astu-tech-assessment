@@ -4,6 +4,18 @@ import chevronDownIcon from "../../assets/chevron_down.svg";
 import infoIcon from "../../assets/info_outline.svg";
 import deleteIcon from "../../assets/deleteIcon.svg";
 import resendIcon from "../../assets/resend_icon.svg";
+import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
+import { styled } from "@mui/material/styles";
+const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#f5f5f5",
+    color: "#323232",
+    fontSize: 11,
+    maxWidth: "10rem",
+  },
+}));
 const Dashboard = () => {
   return (
     <div className="p-8 h-screen flex flex-col gap-8 overflow-auto">
@@ -18,7 +30,13 @@ const Dashboard = () => {
           <p className="text-[#323232]">
             Invite your co-workers to collaborate on Cashwise.
           </p>
-          <img src={infoIcon} alt="" className="cursor-pointer" />
+          <LightTooltip
+            title={
+              "Invited co-workers would have all the permissions except the option to delete the company"
+            }
+          >
+            <img src={infoIcon} alt="" className="cursor-pointer" />
+          </LightTooltip>
         </div>
         <div className="flex gap-4">
           <input
@@ -73,10 +91,14 @@ const Dashboard = () => {
               </span>
             </button>
             <span className="">
-              <img src={deleteIcon} alt="" className="cursor-pointer" />
+              <LightTooltip title="Delete this role">
+                <img src={deleteIcon} alt="" className="cursor-pointer" />
+              </LightTooltip>
             </span>
             <span className="">
-              <img src={resendIcon} className="cursor-pointer" />
+              <LightTooltip title="Resend Invite">
+                <img src={resendIcon} className="cursor-pointer" />
+              </LightTooltip>
             </span>
           </div>
         </div>
@@ -91,10 +113,14 @@ const Dashboard = () => {
               </span>
             </button>
             <span className="">
-              <img src={deleteIcon} alt="" className="cursor-pointer" />
+              <LightTooltip title="Delete this  role">
+                <img src={deleteIcon} alt="" className="cursor-pointer" />
+              </LightTooltip>
             </span>
             <span className="">
-              <img src={resendIcon} className="cursor-pointer" />
+              <LightTooltip title="Resend Invite">
+                <img src={resendIcon} className="cursor-pointer" />
+              </LightTooltip>
             </span>
           </div>
         </div>
