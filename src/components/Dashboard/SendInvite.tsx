@@ -25,6 +25,7 @@ const SendInvite = () => {
           title={
             "Invited co-workers would have all the permissions except the option to delete the company"
           }
+          placement="bottom-start"
         >
           <img src={infoIcon} alt="" className="cursor-pointer" />
         </LightTooltip>
