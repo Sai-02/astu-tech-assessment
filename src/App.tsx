@@ -1,3 +1,4 @@
+import Dashboard from "./components/Dashboard/Dashboard";
 import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
         <div className="col-span-3">
           <Sidebar />
         </div>
-        <div className="col-span-8"></div>
+        <div className="col-span-8 h-screen overflow-hidden">
+          <Dashboard />
+        </div>
       </div>
     </div>
   );
